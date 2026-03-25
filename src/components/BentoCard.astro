@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  variant?: 'default' | 'green';
+  class?: string;
+}
+
+const { title, description, variant = 'default', class: className = '' } = Astro.props;
+const isGreen = variant === 'green';
+---
+
+<div
+  class:list={[
+    "flex flex-col justify-between rounded-3xl p-9 overflow-clip gap-7",
+    isGreen
+      ? "bg-primary"
+      : "bg-white border-[1.5px] border-border",
+    className,
+  ]}
+>
+  <!-- Illustration slot -->
+  <div class:list={["flex items-center justify-center", isGreen ? "text-white/20" : "text-border"]}>
+    <slot />
+  </div>
+
+  <!-- Text content -->
+  <div class="flex flex-col gap-2">
+    <h3 class:list={[
+      "text-xl leading-6 font-heading font-bold",
+      isGreen ? "text-white" : "text-text-primary",
+    ]}>{title}</h3>
+    <p class:list={[
+      "text-sm leading-[22px] font-body",
+      isGreen ? "text-white/70" : "text-text-secondary",
+    ]}>{description}</p>
+  </div>
+</div>

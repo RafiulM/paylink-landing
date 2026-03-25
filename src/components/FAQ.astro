@@ -1,0 +1,30 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import FAQItem from './FAQItem.astro';
+---
+
+<section id="faq" class="flex flex-col items-center py-24 lg:py-[100px] px-6 lg:px-20 gap-[60px]">
+  <SectionHeader
+    label="FAQ"
+    heading="Pertanyaan yang sering ditanya"
+  />
+
+  <div class="w-full max-w-[760px] flex flex-col">
+    <FAQItem
+      question="Apakah pembeli harus buat akun?"
+      answer="Tidak. Pembeli cukup buka link pembayaran dan langsung bayar. Tanpa registrasi, tanpa download aplikasi."
+    />
+    <FAQItem
+      question="Berapa biaya menggunakan PayLink?"
+      answer="Fee PayLink dipotong saat pencairan dana ke penjual. Pembeli membayar sesuai harga yang tertera di link, tanpa biaya tambahan."
+    />
+    <FAQItem
+      question="Bagaimana jika barang tidak sesuai?"
+      answer="Pembeli bisa menghubungi penjual via WhatsApp untuk mediasi. Dana tetap ditahan sampai masalah diselesaikan."
+    />
+    <FAQItem
+      question="Metode pembayaran apa saja yang didukung?"
+      answer="Virtual Account (semua bank besar), QRIS (semua e-wallet & m-banking), dan e-wallet langsung (GoPay, OVO, DANA)."
+    />
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import SecurityItem from './SecurityItem.astro';
+---
+
+<section class="flex flex-col lg:flex-row items-start lg:items-center py-24 lg:py-[100px] px-6 lg:px-20 gap-12 lg:gap-20 bg-white">
+  <!-- Left side -->
+  <div class="flex flex-col gap-6 lg:w-1/2">
+    <SectionHeader
+      label="Keamanan"
+      heading="Kenapa transaksi di PayLink aman?"
+      align="left"
+    />
+    <p class="text-base leading-[26px] font-body text-text-secondary max-w-[480px]">
+      PayLink bukan payment gateway. PayLink adalah orchestrator — dana sepenuhnya berada di tangan payment gateway berlisensi.
+    </p>
+  </div>
+
+  <!-- Right side -->
+  <div class="flex flex-col gap-4 lg:w-1/2">
+    <SecurityItem
+      title="Dana dilindungi payment gateway"
+      description="Uang tidak pernah menyentuh server PayLink. Semua ditahan oleh mitra gateway berlisensi BI."
+      iconPath='<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'
+    />
+    <SecurityItem
+      title="Validasi rekening penjual"
+      description="Nama dan nomor rekening dicek sebelum dana dicairkan. Tidak ada transfer ke rekening salah."
+      iconPath='<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>'
+    />
+    <SecurityItem
+      title="Transparan & real-time"
+      description="Status transaksi bisa dicek kapan saja via link. Notifikasi WA di setiap perubahan status."
+      iconPath='<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>'
+    />
+  </div>
+</section>

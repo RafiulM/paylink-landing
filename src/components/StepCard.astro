@@ -1,0 +1,25 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  description: string;
+  iconPath: string;
+}
+
+const { number, title, description, iconPath } = Astro.props;
+---
+
+<div class="flex-1 flex flex-col gap-5 rounded-[20px] bg-surface p-8">
+  <div class="w-[52px] h-[52px] rounded-[14px] bg-primary-light flex items-center justify-center shrink-0">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6E3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <Fragment set:html={iconPath} />
+    </svg>
+  </div>
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center gap-2">
+      <span class="text-[13px] font-body font-semibold text-primary">{number}</span>
+      <h3 class="text-xl leading-6 font-heading font-bold text-text-primary">{title}</h3>
+    </div>
+    <p class="text-sm leading-[22px] font-body text-text-secondary">{description}</p>
+  </div>
+</div>

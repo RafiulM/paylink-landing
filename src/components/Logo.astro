@@ -1,0 +1,18 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+
+const { variant = 'dark', class: className = '' } = Astro.props;
+const strokeColor = variant === 'dark' ? '#1A1A18' : '#FFFFFF';
+const textColor = variant === 'dark' ? 'text-text-primary' : 'text-white';
+---
+
+<a href="/" class:list={["flex items-center gap-2", className]}>
+  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="38" cy="50" r="24" stroke={strokeColor} stroke-width="8" />
+    <circle cx="62" cy="50" r="24" stroke={strokeColor} stroke-width="8" />
+  </svg>
+  <span class:list={["text-xl font-heading font-extrabold tracking-[-0.02em]", textColor]}>PayLink</span>
+</a>

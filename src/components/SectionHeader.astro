@@ -1,0 +1,33 @@
+---
+interface Props {
+  label: string;
+  heading: string;
+  subtitle?: string;
+  align?: 'center' | 'left';
+  subtitleMaxWidth?: string;
+}
+
+const {
+  label,
+  heading,
+  subtitle,
+  align = 'center',
+  subtitleMaxWidth = '520px',
+} = Astro.props;
+
+const alignClass = align === 'center' ? 'items-center text-center' : 'items-start text-left';
+---
+
+<div class:list={["flex flex-col gap-4", alignClass]}>
+  <span class="text-[13px] leading-4 font-body font-semibold uppercase tracking-[0.1em] text-primary">
+    {label}
+  </span>
+  <h2 class="text-[40px] leading-[48px] font-heading font-extrabold tracking-[-0.03em] text-text-primary">
+    {heading}
+  </h2>
+  {subtitle && (
+    <p class="text-base leading-[26px] font-body text-text-secondary" style={`max-width: ${subtitleMaxWidth}`}>
+      {subtitle}
+    </p>
+  )}
+</div>

@@ -1,0 +1,33 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import StepCard from './StepCard.astro';
+---
+
+<section id="cara-kerja" class="flex flex-col items-center py-24 lg:py-[100px] px-6 lg:px-20 gap-[60px] bg-white">
+  <SectionHeader
+    label="Cara Kerja"
+    heading="Semudah kirim pesan di WhatsApp"
+    subtitle="Tiga langkah sederhana untuk transaksi yang aman. Tanpa registrasi, tanpa ribet."
+  />
+
+  <div class="flex flex-col md:flex-row gap-5 w-full max-w-[1280px]">
+    <StepCard
+      number="01"
+      title="Buat Link"
+      description="Isi nama barang dan harga. Sistem buat link pembayaran unik yang bisa langsung dikirim ke WhatsApp atau DM."
+      iconPath='<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>'
+    />
+    <StepCard
+      number="02"
+      title="Pembeli Bayar"
+      description="Pembeli buka link, pilih metode bayar — VA, QRIS, atau e-wallet. Dana langsung ditahan aman sampai barang diterima."
+      iconPath='<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>'
+    />
+    <StepCard
+      number="03"
+      title="Dana Cair"
+      description="Setelah pembeli konfirmasi barang diterima, dana otomatis ditransfer ke rekening penjual. Aman dan transparan."
+      iconPath='<line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'
+    />
+  </div>
+</section>

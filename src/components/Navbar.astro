@@ -1,0 +1,55 @@
+---
+import Logo from './Logo.astro';
+---
+
+<nav class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
+  <div class="flex items-center justify-between py-5 px-6 lg:px-20">
+    <Logo />
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#cara-kerja" class="text-[15px] font-body font-medium text-text-primary hover:text-primary transition-colors">Cara Kerja</a>
+      <a href="#fitur" class="text-[15px] font-body font-medium text-text-primary hover:text-primary transition-colors">Fitur</a>
+      <a href="#faq" class="text-[15px] font-body font-medium text-text-primary hover:text-primary transition-colors">FAQ</a>
+    </div>
+
+    <a
+      href="#cta"
+      class="hidden md:flex items-center justify-center rounded-full bg-primary px-7 py-3 text-[15px] font-heading font-bold text-white hover:bg-primary/90 transition-colors"
+    >
+      Buat Transaksi
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+    >
+      <span class="block w-6 h-0.5 bg-text-primary transition-transform" id="menu-line-1"></span>
+      <span class="block w-6 h-0.5 bg-text-primary transition-opacity" id="menu-line-2"></span>
+      <span class="block w-6 h-0.5 bg-text-primary transition-transform" id="menu-line-3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-6 pb-6">
+    <a href="#cara-kerja" class="text-[15px] font-body font-medium text-text-primary py-2">Cara Kerja</a>
+    <a href="#fitur" class="text-[15px] font-body font-medium text-text-primary py-2">Fitur</a>
+    <a href="#faq" class="text-[15px] font-body font-medium text-text-primary py-2">FAQ</a>
+    <a
+      href="#cta"
+      class="flex items-center justify-center rounded-full bg-primary px-7 py-3 text-[15px] font-heading font-bold text-white mt-2"
+    >
+      Buat Transaksi
+    </a>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('flex');
+  });
+</script>
