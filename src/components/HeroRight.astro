@@ -1,26 +1,45 @@
 ---
 ---
 
-<div class="flex-1 relative" id="hero-flow">
+<div class="flex-1 relative w-full min-w-0 overflow-hidden" id="hero-flow">
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary-light/40 rounded-full blur-[100px] -z-10"></div>
 
-  <div class="relative mx-auto">
+  <div class="relative mx-auto w-full">
 
-    <!-- Step indicators with connecting line -->
-    <div class="flex items-center mb-6 relative">
+    <!-- Step indicators: DESKTOP with connecting line -->
+    <div class="hidden lg:flex items-center mb-6 relative">
       <div class="absolute top-1/2 left-7 right-7 h-px bg-border -translate-y-1/2 z-0"></div>
 
-      <div class="flex-1 flex items-center gap-2 lg:gap-2.5 relative z-10 hero-step opacity-0" data-delay="0">
-        <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-xs lg:text-sm font-heading font-bold text-white shrink-0">1</div>
-        <span class="text-[11px] lg:text-[13px] font-heading font-bold text-text-primary bg-background pr-2 lg:pr-3">Buat Link</span>
+      <div class="flex-1 flex items-center gap-2.5 relative z-10 hero-step opacity-0" data-delay="0">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-sm font-heading font-bold text-white shrink-0">1</div>
+        <span class="text-[13px] font-heading font-bold text-text-primary bg-background pr-3">Buat Link</span>
       </div>
-      <div class="flex-1 flex items-center gap-2 lg:gap-2.5 justify-center relative z-10 hero-step opacity-0" data-delay="2400">
-        <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-xs lg:text-sm font-heading font-bold text-white shrink-0">2</div>
-        <span class="text-[11px] lg:text-[13px] font-heading font-bold text-text-primary bg-background px-2 lg:px-3">Ditahan</span>
+      <div class="flex-1 flex items-center gap-2.5 justify-center relative z-10 hero-step opacity-0" data-delay="2400">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-sm font-heading font-bold text-white shrink-0">2</div>
+        <span class="text-[13px] font-heading font-bold text-text-primary bg-background px-3">Ditahan</span>
       </div>
-      <div class="flex-1 flex items-center gap-2 lg:gap-2.5 justify-end relative z-10 hero-step opacity-0" data-delay="3600">
-        <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-xs lg:text-sm font-heading font-bold text-white shrink-0">3</div>
-        <span class="text-[11px] lg:text-[13px] font-heading font-bold text-text-primary bg-background pl-2 lg:pl-3">Dana Cair</span>
+      <div class="flex-1 flex items-center gap-2.5 justify-end relative z-10 hero-step opacity-0" data-delay="3600">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-sm font-heading font-bold text-white shrink-0">3</div>
+        <span class="text-[13px] font-heading font-bold text-text-primary bg-background pl-3">Dana Cair</span>
+      </div>
+    </div>
+
+    <!-- Step indicators: MOBILE synced with slider -->
+    <div class="flex lg:hidden items-center mb-6 relative" id="mobile-steps">
+      <div class="absolute top-1/2 left-5 right-5 h-px bg-border -translate-y-1/2 z-0"></div>
+      <div class="absolute top-1/2 left-5 h-px bg-primary -translate-y-1/2 z-[1] transition-all duration-300" id="mobile-steps-progress" style="width: 0%"></div>
+
+      <div class="flex-1 flex items-center gap-2 relative z-10 mobile-step active">
+        <div class="mobile-step-circle w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-heading font-bold text-white shrink-0 transition-all duration-300">1</div>
+        <span class="mobile-step-label text-[11px] font-heading font-bold text-text-primary bg-background pr-2 transition-opacity duration-300">Buat Link</span>
+      </div>
+      <div class="flex-1 flex items-center gap-2 justify-center relative z-10 mobile-step">
+        <div class="mobile-step-circle w-8 h-8 rounded-full bg-border flex items-center justify-center text-xs font-heading font-bold text-white shrink-0 transition-all duration-300">2</div>
+        <span class="mobile-step-label text-[11px] font-heading font-bold text-text-secondary bg-background px-2 transition-opacity duration-300">Ditahan</span>
+      </div>
+      <div class="flex-1 flex items-center gap-2 justify-end relative z-10 mobile-step">
+        <div class="mobile-step-circle w-8 h-8 rounded-full bg-border flex items-center justify-center text-xs font-heading font-bold text-white shrink-0 transition-all duration-300">3</div>
+        <span class="mobile-step-label text-[11px] font-heading font-bold text-text-secondary bg-background pl-2 transition-opacity duration-300">Dana Cair</span>
       </div>
     </div>
 
@@ -161,12 +180,13 @@
       </div>
     </div>
 
-    <!-- MOBILE: swipeable slider -->
+    <!-- MOBILE: one-at-a-time slider -->
     <div class="lg:hidden">
-      <div class="overflow-x-auto snap-x snap-mandatory flex gap-4 pb-4 -mx-6 px-6 scrollbar-hide" id="mobile-slider">
+      <div class="overflow-hidden relative" id="mobile-slider">
+        <div class="flex transition-transform duration-300 ease-out" id="mobile-slider-track">
 
         <!-- Slide 1: WhatsApp Chat -->
-        <div class="snap-center shrink-0 w-[85vw] max-w-[320px] flex flex-col gap-2.5">
+        <div class="w-full shrink-0 px-1 flex flex-col gap-2.5">
           <div class="bg-[#E7FED3] p-2.5 rounded-2xl rounded-tr-none shadow-sm border border-black/5 relative ml-auto w-[92%]">
             <div class="text-[10px] text-text-primary leading-snug mb-1.5">Kak, ini link pembayarannya ya 👇</div>
             <div class="bg-white rounded-xl overflow-hidden border border-border">
@@ -202,7 +222,7 @@
         </div>
 
         <!-- Slide 2: Escrow Hold -->
-        <div class="snap-center shrink-0 w-[85vw] max-w-[320px]">
+        <div class="w-full shrink-0 px-1">
           <div class="bg-white rounded-2xl shadow-md border-2 border-primary/20 p-5 relative overflow-hidden h-full flex flex-col justify-between">
             <div class="text-center space-y-3">
               <div class="w-12 h-12 bg-primary-light rounded-full flex items-center justify-center mx-auto ring-4 ring-primary-light/40">
@@ -245,7 +265,7 @@
         </div>
 
         <!-- Slide 3: Disbursement -->
-        <div class="snap-center shrink-0 w-[85vw] max-w-[320px]">
+        <div class="w-full shrink-0 px-1">
           <div class="bg-text-primary rounded-2xl p-5 shadow-md relative overflow-hidden h-full flex flex-col">
             <div class="absolute -top-8 -right-8 w-28 h-28 bg-primary/20 rounded-full blur-2xl"></div>
             <div class="relative z-10 space-y-3">
@@ -292,10 +312,11 @@
           </div>
         </div>
 
+        </div>
       </div>
 
       <!-- Slider dots -->
-      <div class="flex justify-center gap-2 mt-3" id="slider-dots">
+      <div class="flex justify-center gap-2 mt-4" id="slider-dots">
         <button class="w-6 h-1.5 rounded-full bg-primary transition-all" data-slide="0"></button>
         <button class="w-1.5 h-1.5 rounded-full bg-border transition-all" data-slide="1"></button>
         <button class="w-1.5 h-1.5 rounded-full bg-border transition-all" data-slide="2"></button>
@@ -324,13 +345,6 @@
   }
   .hero-progress-bar {
     transition: width 0.8s ease 0.3s;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
   }
 </style>
 
@@ -361,14 +375,24 @@
 
     observer.observe(flow);
 
-    // Mobile: snap slider dots sync
+    // Mobile: one-at-a-time slider
     const slider = document.getElementById('mobile-slider');
+    const track = document.getElementById('mobile-slider-track');
     const dots = document.querySelectorAll<HTMLElement>('#slider-dots button');
-    if (!slider || !dots.length) return;
+    const mobileSteps = document.querySelectorAll<HTMLElement>('#mobile-steps .mobile-step');
+    const progressLine = document.getElementById('mobile-steps-progress');
+    if (!slider || !track || !dots.length) return;
 
-    function updateDots(activeIndex: number) {
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    function goToSlide(index: number) {
+      currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // Update dots
       dots.forEach((dot, i) => {
-        if (i === activeIndex) {
+        if (i === currentSlide) {
           dot.classList.remove('w-1.5', 'bg-border');
           dot.classList.add('w-6', 'bg-primary');
         } else {
@@ -376,29 +400,72 @@
           dot.classList.remove('w-6', 'bg-primary');
         }
       });
+
+      // Update mobile step indicators
+      mobileSteps.forEach((step, i) => {
+        const circle = step.querySelector('.mobile-step-circle');
+        const label = step.querySelector('.mobile-step-label');
+        if (!circle || !label) return;
+
+        if (i <= currentSlide) {
+          circle.classList.remove('bg-border');
+          circle.classList.add('bg-primary');
+          label.classList.remove('text-text-secondary');
+          label.classList.add('text-text-primary');
+        } else {
+          circle.classList.add('bg-border');
+          circle.classList.remove('bg-primary');
+          label.classList.add('text-text-secondary');
+          label.classList.remove('text-text-primary');
+        }
+      });
+
+      // Update progress line
+      if (progressLine) {
+        const percent = currentSlide === 0 ? 0 : currentSlide === 1 ? 50 : 100;
+        progressLine.style.width = `${percent}%`;
+      }
     }
 
-    // Detect which slide is active on scroll
-    let scrollTimeout: ReturnType<typeof setTimeout>;
-    slider.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const scrollLeft = slider.scrollLeft;
-        const slideWidth = slider.firstElementChild?.getBoundingClientRect().width || 0;
-        const gap = 16;
-        const activeIndex = Math.round(scrollLeft / (slideWidth + gap));
-        updateDots(Math.min(activeIndex, 2));
-      }, 50);
+    // Click dots to navigate
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goToSlide(i));
     });
 
-    // Click dots to scroll
+    // Auto-slide every 3s, loops back to first
+    let autoSlideTimer = setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 3000);
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(() => {
+        goToSlide((currentSlide + 1) % totalSlides);
+      }, 3000);
+    }
+
+    // Click dots resets auto-slide timer
     dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        const slideWidth = slider.firstElementChild?.getBoundingClientRect().width || 0;
-        const gap = 16;
-        slider.scrollTo({ left: i * (slideWidth + gap), behavior: 'smooth' });
-      });
+      dot.addEventListener('click', resetAutoSlide);
     });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
+        resetAutoSlide();
+      }
+    }, { passive: true });
   }
 
   initHeroFlow();

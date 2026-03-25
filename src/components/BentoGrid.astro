@@ -32,8 +32,8 @@ import BentoCard from './BentoCard.astro';
       description="Scan QR — berlaku untuk semua e-wallet dan m-banking di Indonesia."
       class="flex-1"
     >
-      <!-- QRIS Illustration -->
-      <div class="w-[140px] h-[140px] grid grid-cols-7 grid-rows-7 gap-[3px] p-2">
+      <!-- QRIS Illustration (animated) -->
+      <div class="w-[140px] h-[140px] grid grid-cols-7 grid-rows-7 gap-[3px] p-2" id="qris-grid">
         {Array.from({ length: 49 }).map((_, i) => {
           const row = Math.floor(i / 7);
           const col = i % 7;
@@ -42,9 +42,10 @@ import BentoCard from './BentoCard.astro';
           return (
             <div
               class:list={[
-                "rounded-sm",
+                "rounded-sm transition-colors duration-500",
                 isCorner ? "bg-primary/80" : isCenter ? "bg-primary" : "bg-primary/20",
               ]}
+              data-fixed={isCorner || isCenter ? "true" : undefined}
             />
           );
         })}
@@ -157,3 +158,31 @@ import BentoCard from './BentoCard.astro';
     </BentoCard>
   </div>
 </div>
+
+<script>
+  function initQrisAnimation() {
+    const grid = document.getElementById('qris-grid');
+    if (!grid) return;
+
+    const cells = Array.from(grid.children) as HTMLElement[];
+    const animatable = cells.filter(c => !c.dataset.fixed);
+
+    function randomize() {
+      animatable.forEach(cell => {
+        const highlight = Math.random() < 0.35;
+        if (highlight) {
+          cell.classList.remove('bg-primary/20');
+          cell.classList.add('bg-primary/80');
+        } else {
+          cell.classList.remove('bg-primary/80');
+          cell.classList.add('bg-primary/20');
+        }
+      });
+    }
+
+    setInterval(randomize, 800);
+  }
+
+  initQrisAnimation();
+  document.addEventListener('astro:page-load', initQrisAnimation);
+</script>

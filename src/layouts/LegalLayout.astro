@@ -1,0 +1,171 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  version: string;
+}
+
+const { title, subtitle, version } = Astro.props;
+---
+
+<Layout title={`${title} — PayLink`}>
+  <Navbar />
+  <main class="px-6 lg:px-20 py-16 lg:py-24">
+    <article class="max-w-[760px] mx-auto">
+      <header class="mb-12 pb-8 border-b border-border">
+        <span class="text-[13px] font-body font-semibold uppercase tracking-[0.1em] text-primary mb-3 block">
+          PT Paylink Digital Nusantara
+        </span>
+        <h1 class="text-[36px] lg:text-[44px] leading-[1.12] font-heading font-extrabold tracking-[-0.03em] text-text-primary mb-3">
+          {title}
+        </h1>
+        <p class="text-base font-body text-text-secondary mb-2">{subtitle}</p>
+        <p class="text-sm font-body text-text-secondary/60">{version}</p>
+      </header>
+
+      <div class="legal-content">
+        <slot />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  .legal-content h2 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+
+  .legal-content h3 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .legal-content h4 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .legal-content p {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+  }
+
+  .legal-content ul,
+  .legal-content ol {
+    font-family: var(--font-body), sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    padding-left: 24px;
+  }
+
+  .legal-content ul {
+    list-style-type: disc;
+  }
+
+  .legal-content ol {
+    list-style-type: decimal;
+  }
+
+  .legal-content li {
+    margin-bottom: 6px;
+  }
+
+  .legal-content .summary-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .legal-content .summary-box h4 {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
+  .legal-content .summary-box h4:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content .summary-box p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .legal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-family: var(--font-body), sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .legal-content th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .legal-content td {
+    color: var(--color-text-secondary);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  .legal-content strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-content a:hover {
+    opacity: 0.8;
+  }
+
+  .legal-content .closing {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .legal-content .closing p {
+    font-size: 14px;
+  }
+</style>
